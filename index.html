@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Daily Huddle · Format & Flow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E0E14;
+    --ink-soft: #2A2A3A;
+    --ink-mid: #4A4A5E;
+    --muted: #8A8A9A;
+    --line: #E4E4EC;
+    --line-strong: #1A1A2E;
+    --paper: #FCFCF9;
+    --bg: #F5F4EE;
+    --purple: #6B2FA5;
+    --purple-soft: #F0E9F8;
+    --teal: #00857A;
+    --teal-soft: #DDF2EF;
+    --gold: #B68C2A;
+    --red: #B5301B;
+    --red-soft: #FBEDEA;
+
+    --font-display: "Fraunces", "Times New Roman", serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 56px 56px 80px;
+  }
+  @media (max-width: 768px) {
+    .container { padding: 32px 20px 60px; }
+  }
+
+  /* ── HERO ────────────────────────────────────────────────── */
+  .hero {
+    border-bottom: 2px solid var(--line-strong);
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--purple);
+    font-weight: 600;
+  }
+  .hero-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    padding: 6px 12px;
+    background: var(--paper);
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 20px;
+    font-variation-settings: "opsz" 144;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--purple);
+    font-weight: 400;
+  }
+  .hero-lede {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.45;
+    color: var(--ink-mid);
+    max-width: 780px;
+    font-weight: 400;
+  }
+
+  /* ── At-a-glance card row ────────────────────────────────── */
+  .glance {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--line-strong);
+    background: var(--paper);
+    margin-bottom: 56px;
+  }
+  @media (max-width: 768px) {
+    .glance { grid-template-columns: repeat(2, 1fr); }
+  }
+  .glance-cell {
+    padding: 22px 24px;
+    border-right: 1px solid var(--line);
+  }
+  .glance-cell:last-child { border-right: none; }
+  @media (max-width: 768px) {
+    .glance-cell:nth-child(2) { border-right: none; }
+    .glance-cell:nth-child(1), .glance-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
+  }
+  .glance-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .glance-value {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .glance-value small {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--muted);
+    display: block;
+    margin-top: 4px;
+    letter-spacing: 0;
+  }
+
+  /* ── Section ─────────────────────────────────────────────── */
+  section { margin-bottom: 64px; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+  }
+  .section-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--purple);
+    font-weight: 600;
+  }
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .section-header h2 em {
+    font-style: italic;
+    color: var(--purple);
+    font-weight: 400;
+  }
+  section > p {
+    color: var(--ink-mid);
+    margin-bottom: 16px;
+    max-width: 820px;
+    font-size: 16px;
+  }
+
+  /* ── Three-rule cards ────────────────────────────────────── */
+  .rules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 768px) {
+    .rules { grid-template-columns: 1fr; }
+  }
+  .rule {
+    background: var(--paper);
+    border-left: 3px solid var(--purple);
+    padding: 20px 22px;
+  }
+  .rule-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--purple);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .rule h4 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .rule p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-mid);
+  }
+
+  /* ── The Template ────────────────────────────────────────── */
+  .template {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 36px 40px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .template::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--purple) 0%, var(--teal) 100%);
+  }
+  .template-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .template-line {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--paper);
+  }
+  .template-line .field {
+    color: #F4D078;
+    font-weight: 500;
+  }
+  .template-example {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.7;
+    color: #B8B8C8;
+  }
+  .template-example::before {
+    content: "EXAMPLE — ";
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ── Time block ──────────────────────────────────────────── */
+  .block {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    margin-bottom: 12px;
+  }
+  .block-head {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    gap: 24px;
+    align-items: center;
+    padding: 18px 24px;
+    background: var(--purple-soft);
+    border-bottom: 1px solid var(--line);
+  }
+  .block-time {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--purple);
+    letter-spacing: 0.05em;
+  }
+  .block-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .block-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--purple);
+  }
+  .block-duration {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Reporter row */
+  .reporter {
+    display: grid;
+    grid-template-columns: 26px 200px 160px 1fr;
+    gap: 20px;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .reporter:last-child { border-bottom: none; }
+  @media (max-width: 1000px) {
+    .reporter {
+      grid-template-columns: 26px 1fr;
+      grid-template-rows: auto auto;
+      row-gap: 6px;
+    }
+    .reporter .r-owner { grid-column: 2; }
+    .reporter .r-name { grid-column: 2; }
+    .reporter .r-metrics { grid-column: 2; }
+  }
+  .r-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .r-name {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .r-owner {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--purple);
+    font-weight: 500;
+  }
+  .r-owner small {
+    color: var(--muted);
+    font-weight: 400;
+    display: block;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .r-metrics {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+  .r-metrics .pipe {
+    color: var(--line);
+    margin: 0 6px;
+  }
+
+  .opener {
+    background: var(--teal-soft);
+    border-left: 3px solid var(--teal);
+  }
+  .opener .r-owner { color: var(--teal); }
+
+  /* ── Closing block ───────────────────────────────────────── */
+  .close-block {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px 36px;
+    margin-top: 32px;
+  }
+  .close-block .label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .close-block h3 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    line-height: 1.2;
+  }
+  .close-block h3 em { font-style: italic; color: #F4D078; }
+  .close-list {
+    list-style: none;
+    counter-reset: closer;
+  }
+  .close-list li {
+    counter-increment: closer;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 12px;
+    font-size: 15px;
+    color: #D4D4DE;
+  }
+  .close-list li:last-child { border-bottom: none; }
+  .close-list li::before {
+    content: counter(closer, decimal-leading-zero);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 600;
+    align-self: start;
+    padding-top: 4px;
+  }
+
+  /* ── Discipline rules ────────────────────────────────────── */
+  .discipline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--paper);
+    border: 1px solid var(--line-strong);
+  }
+  @media (max-width: 768px) {
+    .discipline { grid-template-columns: 1fr; }
+  }
+  .discipline-cell {
+    padding: 24px 28px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .discipline-cell:nth-child(2n) { border-right: none; }
+  @media (max-width: 768px) {
+    .discipline-cell { border-right: none; }
+  }
+  .discipline-cell h4 {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.005em;
+  }
+  .discipline-cell h4 .num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--purple);
+    margin-right: 8px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+  .discipline-cell p {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.55;
+  }
+
+  /* ── Roles ───────────────────────────────────────────────── */
+  .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 768px) {
+    .roles-grid { grid-template-columns: 1fr; }
+  }
+  .role {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 20px 22px;
+  }
+  .role-tag {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--purple);
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 4px 8px;
+    background: var(--purple-soft);
+  }
+  .role h4 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .role p {
+    font-size: 13.5px;
+    color: var(--ink-mid);
+    line-height: 1.55;
+  }
+
+  /* ── Footer ──────────────────────────────────────────────── */
+  footer {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ─── HERO ──────────────────────────────────────────────────── -->
+<header class="hero">
+  <div class="hero-meta">
+    <div class="hero-eyebrow">Operations · Daily Huddle</div>
+    <span class="hero-tag">Daily · 30 min · Company-wide</span>
+  </div>
+  <h1>Your space to <em>stop waiting.</em></h1>
+  <p class="hero-lede">Thirty minutes a day, every lane reports their numbers and asks for what they need. If you're stuck on a video from Vishen, an approval, a decision — this is where you raise it and walk out unblocked. Not next week. Today. And when someone hits their number or ships something hard, the room cheers them on. Thumbs up, fire emojis, real energy. This is not a boring reporting meeting — it's the room that knows what's happening across the whole business and reacts to it together.</p>
+</header>
+
+<!-- ─── AT A GLANCE ───────────────────────────────────────────── -->
+<div class="glance">
+  <div class="glance-cell">
+    <div class="glance-label">Cadence</div>
+    <div class="glance-value">Daily<small>Mon–Fri, 30 min sharp</small></div>
+  </div>
+  <div class="glance-cell">
+    <div class="glance-label">Audience</div>
+    <div class="glance-value">All<small>Company-wide pulse check</small></div>
+  </div>
+  <div class="glance-cell">
+    <div class="glance-label">Lanes</div>
+    <div class="glance-value">24<small>Reporters across 4 blocks</small></div>
+  </div>
+  <div class="glance-cell">
+    <div class="glance-label">Per slot</div>
+    <div class="glance-value">75<small>Seconds. Hard cap.</small></div>
+  </div>
+</div>
+
+<!-- ─── 01 · WHAT THIS MEETING IS ─────────────────────────────── -->
+<section>
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <h2>The meeting is <em>yours.</em></h2>
+  </div>
+  <p>The Daily Huddle isn't a status report you owe to leadership. It's a tool you use. Every owner has a slot. The slot exists so you can move work that's stuck, get decisions you need, and surface blockers before they cost you a week.</p>
+
+  <div class="discipline" style="margin-top: 24px;">
+    <div class="discipline-cell">
+      <h4><span class="num">USE IT TO</span>Get unstuck, today</h4>
+      <p>If you need a video from Vishen, a decision from an exec, an approval from another team — raise it here. The right people are in the room. Walk out with a yes, a no, or a date. Not "I'll get back to you."</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">USE IT TO</span>Show what's working — and what's not</h4>
+      <p>Every owner reports their numbers daily. If you're on target with no blocker, pass in 10 seconds. If you're off target, this is where you say what you're doing today and this week to close the gap.</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">USE IT TO</span>Solve problems live</h4>
+      <p>Execs (CGO, CFO, CPO, CTO, CHRO) are in the room to make decisions, not to listen. When a blocker is raised, they solve it on the spot or commit to a same-day answer. Vishen gets a daily read of what's moving across the company.</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">USE IT TO</span>Cheer the wins</h4>
+      <p>When someone hits a number, ships something hard, or unblocks a teammate — the room reacts. Thumbs up, fire emojis, "let's go." Real energy. This isn't a status sweep. We're a team that knows what each other is building and we celebrate when it lands.</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">DON'T USE IT FOR</span>Strategy, roadmap, or long debates</h4>
+      <p>This is tactical. Targets and roadmap belong to the weekly Revenue Task Force. If a topic needs more than two minutes of discussion, the owner books a follow-up meeting same-day or next-day and moves on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 02 · THE 75-SECOND TEMPLATE ───────────────────────────── -->
+<section>
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <h2>How to <em>report.</em></h2>
+  </div>
+  <p>Crisp. Numbers, not story. Every reporter says the same four lines. If you're on target with nothing stuck, you pass in 10 seconds. If you're off target or stuck, this is where you say what's wrong and what you need.</p>
+
+  <div class="template">
+    <div class="template-label">Daily Huddle · Reporter Template</div>
+    <div class="template-line">
+      <span class="field">Lane:</span> [Pathway / Function name]<br>
+      <span class="field">Numbers:</span> [Yesterday's KPIs · on target or off]<br>
+      <span class="field">If off target:</span> [Crisp diagnosis · "because X" · what we're doing today / this week]<br>
+      <span class="field">Ask:</span> [What I need from someone in this room · or "none"]
+    </div>
+    <div class="template-example">Manifesting Pathway. ROAS 75% vs 95% target — creative is fatigued. New VSL goes live today, second test tomorrow. Ask: need Brand approval on the new VSL by 1pm or we lose the day.</div>
+  </div>
+
+  <div class="rules">
+    <div class="rule">
+      <div class="rule-num">RULE 01</div>
+      <h4>Numbers come from the dashboard</h4>
+      <p>Lane owner updates Mission OS and the relevant dashboards by 8:00am. If it's not on the dashboard, you don't have a slot.</p>
+    </div>
+    <div class="rule">
+      <div class="rule-num">RULE 02</div>
+      <h4>On target, no blocker = 10 seconds</h4>
+      <p>"On target, no asks." Move on. Brevity is rewarded. The room earns time on the lanes that need it.</p>
+    </div>
+    <div class="rule">
+      <div class="rule-num">RULE 03</div>
+      <h4>Off target = diagnosis + fix</h4>
+      <p>"ROAS 75% because creative fatigued. Testing new VSL today." Not "we had a hard day, lots going on, working on it." Crisp. Two sentences max.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 03 · THE FLOW ─────────────────────────────────────────── -->
+<section>
+  <div class="section-header">
+    <div class="section-num">03</div>
+    <h2>The flow — <em>30 minutes, four blocks.</em></h2>
+  </div>
+  <p>Lanes run in order of customer journey. Acquisition → conversion → retention → infrastructure. Everyone knows their slot and the order. No one waits to be called. When the lane in front of you finishes, you start. Daniel chairs — he keeps time, calls out wins, and makes sure the room has energy.</p>
+
+  <!-- BLOCK 1 — ACQUISITION -->
+  <div class="block" style="margin-top: 16px;">
+    <div class="block-head">
+      <div class="block-time">00:00–00:14</div>
+      <div class="block-title">Acquisition · <em>Where leads &amp; sales came in yesterday</em></div>
+      <div class="block-duration">14 MIN · 9 SLOTS</div>
+    </div>
+    <div class="reporter opener">
+      <div class="r-num">01</div>
+      <div class="r-name">Membership opener</div>
+      <div class="r-owner">Dan Savov<small>Membership Marketing lead</small></div>
+      <div class="r-metrics">Net new subs/day vs target<span class="pipe">·</span>Blended ROAS<span class="pipe">·</span>Revenue vs target</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">02</div>
+      <div class="r-name">Manifesting Pathway</div>
+      <div class="r-owner">Shubham Semwal<small>Pathway lead</small></div>
+      <div class="r-metrics">ROAS<span class="pipe">·</span>CPL<span class="pipe">·</span>Daily spend (target $25K)<span class="pipe">·</span>Daily revenue</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">03</div>
+      <div class="r-name">Entrepreneurship Pathway</div>
+      <div class="r-owner">Harri Vainikainen<small>Pathway lead</small></div>
+      <div class="r-metrics">ROAS<span class="pipe">·</span>CPL<span class="pipe">·</span>Daily spend (target $25K)<span class="pipe">·</span>Daily revenue</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">04</div>
+      <div class="r-name">Speaking Pathway</div>
+      <div class="r-owner">Shubham Semwal<small>Pathway lead</small></div>
+      <div class="r-metrics">ROAS<span class="pipe">·</span>CPL<span class="pipe">·</span>Daily spend (target $25K)<span class="pipe">·</span>Daily revenue</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">05</div>
+      <div class="r-name">Longevity Pathway</div>
+      <div class="r-owner">Harri Vishnu<small>Pathway lead</small></div>
+      <div class="r-metrics">ROAS<span class="pipe">·</span>CPL<span class="pipe">·</span>Daily spend (target $25K)<span class="pipe">·</span>Daily revenue</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">06</div>
+      <div class="r-name">Organic / SEO</div>
+      <div class="r-owner">Karolina Waligora<small>SEO lead</small></div>
+      <div class="r-metrics">Mindvalley.com update<span class="pipe">·</span>Leads from SEO (MTD vs target)</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">07</div>
+      <div class="r-name">Social Media</div>
+      <div class="r-owner">Social Media Lead<small>Owner TBC post-Will</small></div>
+      <div class="r-metrics">Yesterday's video performance<span class="pipe">·</span>What's going out today<span class="pipe">·</span>Leads from social (MTD vs target)</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">08</div>
+      <div class="r-name">Campaigns</div>
+      <div class="r-owner">Ramya Rednam<small>Head of Campaigns</small></div>
+      <div class="r-metrics">What's going out today<span class="pipe">·</span>List health<span class="pipe">·</span>Revenue from current campaign<span class="pipe">·</span>Leads acquired in current campaign<span class="pipe">·</span>Show-up rate / current campaign metrics</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">09</div>
+      <div class="r-name">Lifecycle</div>
+      <div class="r-owner">Pavel Luzanov<small>Lifecycle</small></div>
+      <div class="r-metrics">90-day LTV update</div>
+    </div>
+  </div>
+
+  <!-- BLOCK 2 — CONVERSION + DELIVERY -->
+  <div class="block">
+    <div class="block-head">
+      <div class="block-time">00:14–00:22</div>
+      <div class="block-title">Conversion &amp; Delivery · <em>What we're selling and shipping</em></div>
+      <div class="block-duration">8 MIN · 5 SLOTS</div>
+    </div>
+    <div class="reporter opener">
+      <div class="r-num">10</div>
+      <div class="r-name">Academy / Mastery launches</div>
+      <div class="r-owner">Wendy Boo<small>Academy Marketing</small></div>
+      <div class="r-metrics">Daily sales vs target<span class="pipe">·</span>Webinar registrations<span class="pipe">·</span>Lead generation<span class="pipe">·</span>Accelerator Evergreen status<span class="pipe">·</span>Active launches today (numbers)</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">11</div>
+      <div class="r-name">Curriculum, Upsells &amp; Accelerator Products</div>
+      <div class="r-owner">Gareth<small>Head of Experience</small></div>
+      <div class="r-metrics">Upsells in build<span class="pipe">·</span>Accelerator products in build<span class="pipe">·</span>Mastery curriculum updates</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">12</div>
+      <div class="r-name">Summits — operational status</div>
+      <div class="r-owner">Janja Živko<small>Academy Ops</small></div>
+      <div class="r-metrics">Active summit (closest to launch)<span class="pipe">·</span>Operational update<span class="pipe">·</span>KPIs to be confirmed with Jaideep</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">13</div>
+      <div class="r-name">Events</div>
+      <div class="r-owner">Eni Selfo<small>Events lead</small></div>
+      <div class="r-metrics">Speaker confirmations<span class="pipe">·</span>Tickets sold yesterday<span class="pipe">·</span>MVU update<span class="pipe">·</span>Future Human status</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">14</div>
+      <div class="r-name">States</div>
+      <div class="r-owner">Moniek Schuldt<small>States lead</small></div>
+      <div class="r-metrics">Bottles sold yesterday<span class="pipe">·</span>Daily revenue<span class="pipe">·</span>Days to expiry<span class="pipe">·</span>Live ad creatives</div>
+    </div>
+  </div>
+
+  <!-- BLOCK 3 — RETENTION + CARE -->
+  <div class="block">
+    <div class="block-head">
+      <div class="block-time">00:22–00:25</div>
+      <div class="block-title">Retention &amp; Care · <em>Keeping the customers we have</em></div>
+      <div class="block-duration">3 MIN · 4 SLOTS</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">15</div>
+      <div class="r-name">Customer Support</div>
+      <div class="r-owner">Tom Kirby<small>CS lead</small></div>
+      <div class="r-metrics">Ticket volume yesterday<span class="pipe">·</span>CSAT<span class="pipe">·</span>AI containment rate<span class="pipe">·</span>Any issues / bugs from yesterday (Stripe, payments, app, etc.)</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">16</div>
+      <div class="r-name">Concierge</div>
+      <div class="r-owner">Tom Kirby + Concierge Lead<small>Premium support</small></div>
+      <div class="r-metrics">VIP tickets yesterday<span class="pipe">·</span>Save rate<span class="pipe">·</span>Mastery cohort issues<span class="pipe">·</span>One member at risk</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">17</div>
+      <div class="r-name">Refunds</div>
+      <div class="r-owner">Alex + Tom<small>Cross-BU refunds</small></div>
+      <div class="r-metrics">Refunds yesterday ($)<span class="pipe">·</span>Refund rate by BU<span class="pipe">·</span>Top reason this week<span class="pipe">·</span>Saves yesterday</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">18</div>
+      <div class="r-name">Onboarding / Activation</div>
+      <div class="r-owner">Sadaf<small>Onboarding</small></div>
+      <div class="r-metrics">Day-0 login rate yesterday<span class="pipe">·</span>Activation rate trend<span class="pipe">·</span>Onboarding flow tests live</div>
+    </div>
+  </div>
+
+  <!-- BLOCK 4 — PLATFORM + COST -->
+  <div class="block">
+    <div class="block-head">
+      <div class="block-time">00:25–00:30</div>
+      <div class="block-title">Platform &amp; Infrastructure · <em>The engine underneath</em></div>
+      <div class="block-duration">5 MIN · 6 SLOTS</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">19</div>
+      <div class="r-name">Product</div>
+      <div class="r-owner">Palak<small>Product</small></div>
+      <div class="r-metrics">Revenue from referrals<span class="pipe">·</span>Checkout conversion rate<span class="pipe">·</span>Freemium App progress<span class="pipe">·</span>mindvalley.com revamp progress<span class="pipe">·</span>One feature shipping this week</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">20</div>
+      <div class="r-name">Engineering</div>
+      <div class="r-owner">Irfan<small>Engineering</small></div>
+      <div class="r-metrics">Platform uptime<span class="pipe">·</span>Bugs reported in production yesterday<span class="pipe">·</span>Page deployment progress</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">21</div>
+      <div class="r-name">Migrations &amp; Page Speed</div>
+      <div class="r-owner">Bacon<small>Engineering</small></div>
+      <div class="r-metrics">Blog migration progress<span class="pipe">·</span>Stories migration progress<span class="pipe">·</span>Page speed</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">22</div>
+      <div class="r-name">Checkout VPC</div>
+      <div class="r-owner">Naresh<small>Checkout</small></div>
+      <div class="r-metrics">Checkout VPC progress<span class="pipe">·</span>Checkout-related issues</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">23</div>
+      <div class="r-name">Acquisition / Product Design</div>
+      <div class="r-owner">Faris<small>Product Design</small></div>
+      <div class="r-metrics">What he's working on<span class="pipe">·</span>Time to deploy</div>
+    </div>
+    <div class="reporter">
+      <div class="r-num">24</div>
+      <div class="r-name">Data</div>
+      <div class="r-owner">Eros + Jacob<small>Data team</small></div>
+      <div class="r-metrics">What they're working on in data<span class="pipe">·</span>One insight from data to share with the company</div>
+    </div>
+  </div>
+
+  <!-- CLOSE -->
+  <div class="close-block">
+    <div class="label">00:30 · Wrap</div>
+    <h3>Blockers raised → <em>follow-ups booked.</em></h3>
+    <ul class="close-list">
+      <li>Every blocker raised that wasn't solved live gets a follow-up meeting. The owner who raised it books it — same day if possible, next day at the latest.</li>
+      <li>Daniel reads back the list of follow-ups before the meeting ends. Owners confirm they've booked them.</li>
+      <li>Tomorrow we open with the lanes that had blockers yesterday. Did they get unblocked? If not, why not?</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ─── 04 · ROLES ────────────────────────────────────────────── -->
+<section>
+  <div class="section-header">
+    <div class="section-num">04</div>
+    <h2>Who does <em>what.</em></h2>
+  </div>
+  <p>Daniel chairs because growth is his domain. Owners run their own slot. Execs solve.</p>
+
+  <div class="roles-grid">
+    <div class="role">
+      <span class="role-tag">Role 01</span>
+      <h4>The Owner — runs their slot</h4>
+      <p>You don't wait to be called. When the lane in front of you finishes, you go. Update your dashboard by 8am. Report crisp — numbers, diagnosis, fix, ask. If you need something from someone in the room, raise it. This is your space to stop waiting on people.</p>
+    </div>
+    <div class="role">
+      <span class="role-tag">Role 02</span>
+      <h4>Daniel — Chair (Head of Growth)</h4>
+      <p>This is a tactical meeting and growth is Daniel's domain, so he chairs. He keeps time, cuts at 75 seconds, reads back the unsolved blockers at the end so owners book follow-ups. He also sets the energy — calls out the wins, leads the cheering, makes sure the room reacts to what's shipping. Not a passive timekeeper. The meeting feels like Daniel.</p>
+    </div>
+    <div class="role">
+      <span class="role-tag">Role 03</span>
+      <h4>The Exec — solves live</h4>
+      <p>Marisha, Vishen, Dario, Norman, Alex, Jill — you're here to solve, not listen. When an owner raises a blocker that's yours to unblock, answer in the room. Yes, no, or a same-day commitment. The whole point of this meeting is owners stop waiting on you for days. Don't make them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 05 · DISCIPLINE ───────────────────────────────────────── -->
+<section>
+  <div class="section-header">
+    <div class="section-num">05</div>
+    <h2>The rules that <em>make this work.</em></h2>
+  </div>
+  <p>These are the hygiene rules. Without them the meeting drifts back to a 60-minute parade. With them it stays at 30.</p>
+
+  <div class="discipline" style="margin-top: 24px;">
+    <div class="discipline-cell">
+      <h4><span class="num">01</span>The dashboard is the source</h4>
+      <p>Numbers update by 8:00am. If they're not in Mission OS, you don't have a slot. The huddle reads the data; it doesn't generate it.</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">02</span>Owners run their own slot</h4>
+      <p>Everyone knows the order. When the lane before you finishes, you go. No one waits to be called. The meeting runs without the facilitator carrying it.</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">03</span>On target + no blocker = 10 seconds</h4>
+      <p>"On target, no asks." Pass. The room earns its time on the lanes that need attention.</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">04</span>Off target = crisp diagnosis + crisp fix</h4>
+      <p>"ROAS 75% because creative fatigued. New VSL today." Two sentences. Not a story. Not a hedge.</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">05</span>Raise blockers here, not later</h4>
+      <p>If you need a video, an approval, a decision — say it now. The right people are in the room. This meeting exists so you stop waiting days for things you could resolve in minutes.</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">06</span>Execs solve live, or commit same-day</h4>
+      <p>When a blocker is raised, the exec who can unblock it answers in the room. Yes, no, or a time before EOD. Not "I'll get back to you next week."</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">07</span>Unsolved blockers → follow-up booked</h4>
+      <p>Anything that needs more than two minutes of discussion gets a follow-up meeting. The owner who raised it books it — same day, or next day at the latest. Daniel reads back the list before close so owners commit.</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">08</span>75 seconds, hard cap</h4>
+      <p>Daniel cuts at 75. The clock is louder than the speaker. Strategy and roadmap go to the weekly Revenue Task Force, not here.</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">09</span>Energy, not silence</h4>
+      <p>When someone hits a number, ships something hard, or unblocks a teammate — the room reacts. Thumbs up, fire emojis, a quick "let's go." This is the company team huddle. Boring is the failure mode.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>The Daily Huddle · v1</div>
+  <div>Format · Flow · Discipline</div>
+</footer>
+
+</div>
+
+</body>
+</html>
