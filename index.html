@@ -380,6 +380,20 @@
   }
   .opener .r-owner { color: var(--teal); }
 
+  .r-schedule {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    background: rgba(182, 140, 42, 0.12);
+    padding: 3px 8px;
+    margin-left: 8px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
   /* ── Closing block ───────────────────────────────────────── */
   .close-block {
     background: var(--ink);
@@ -537,7 +551,7 @@
     <span class="hero-tag">Daily · 30 min · Company-wide</span>
   </div>
   <h1>Your space to <em>stop waiting.</em></h1>
-  <p class="hero-lede"><strong>This is a tactical meeting — not strategy, not roadmap, not debate.</strong> Thirty minutes a day, every lane reports their numbers and asks for what they need. If you're stuck on a video from Vishen, an approval, a decision — this is where you raise it and walk out unblocked. Not next week. Today. And when someone hits their number or ships something hard, the room cheers them on. Thumbs up, fire emojis, real energy. This is not a boring reporting meeting — it's the room that knows what's happening across the whole business and reacts to it together.</p>
+  <p class="hero-lede"><strong>This is a tactical reporting meeting — not strategy, not roadmap, not problem-solving.</strong> Thirty minutes a day, every lane reports their numbers and asks for what they need. Decisions get made in the room — fast. If you're stuck on a video from Vishen, an approval, a routing call — this is where you raise it and walk out with a yes, a no, or a name. If a blocker needs real discussion, you book a follow-up within 48 hours. You don't sit here and debate it. And when someone hits their number or ships something hard, the room cheers them on. Thumbs up, fire emojis, real energy. This is the room that knows what's happening across the whole business and reacts to it together.</p>
 </header>
 
 <!-- ─── AT A GLANCE ───────────────────────────────────────────── -->
@@ -578,8 +592,8 @@
       <p>Every owner reports their numbers daily. If you're on target with no blocker, pass in 10 seconds. If you're off target, this is where you say what you're doing today and this week to close the gap.</p>
     </div>
     <div class="discipline-cell">
-      <h4><span class="num">USE IT TO</span>Solve problems live</h4>
-      <p>Execs (CGO, CFO, CPO, CTO, CHRO) are in the room to make decisions, not to listen. When a blocker is raised, they solve it on the spot or commit to a same-day answer. Vishen gets a daily read of what's moving across the company.</p>
+      <h4><span class="num">USE IT TO</span>Get decisions made — not problems debated</h4>
+      <p>Execs (CGO, CFO, CPO, CTO, CHRO) are in the room to decide, not listen. Routing calls happen instantly — "bump it to Vishen to film," "Brand approves by 1pm," "Finance owns this." If the answer needs a real conversation, the owner books a follow-up <strong>within 48 hours</strong> and the huddle moves on. We do not solve problems in the room. We unblock them out of it.</p>
     </div>
     <div class="discipline-cell">
       <h4><span class="num">USE IT TO</span>Learn the heartbeat of the company</h4>
@@ -591,7 +605,7 @@
     </div>
     <div class="discipline-cell">
       <h4><span class="num">DON'T USE IT FOR</span>Strategy, roadmap, or long debates</h4>
-      <p>This is tactical. Targets and roadmap belong to the weekly Revenue Task Force. If a topic needs more than two minutes of discussion, the owner books a follow-up meeting same-day or next-day and moves on.</p>
+      <p>This is a tactical reporting meeting, not a problem-solving one. Targets and roadmap belong to the weekly Revenue Task Force. If a topic needs more than two minutes — "I'm struggling with X, I need to walk you through it" — the owner books a follow-up within 48 hours. We don't sit here and debate it.</p>
     </div>
   </div>
 </section>
@@ -641,6 +655,7 @@
     <h2>The flow — <em>30 minutes, four blocks.</em></h2>
   </div>
   <p>Lanes run in order of customer journey. Acquisition → conversion → retention → infrastructure. Everyone knows their slot and the order. No one waits to be called. When the lane in front of you finishes, you start. Daniel chairs — he keeps time, calls out wins, and makes sure the room has energy.</p>
+  <p style="margin-top: 12px;"><strong>Some lanes are scheduled, not daily.</strong> Data presents Mondays. Checkout presents Tuesdays. Product Design (Fariz) presents Wednesdays. Engineering (Irfan) presents Thursdays — plus any day there's an incident. Product (Palak) presents Mon / Wed / Fri. Migrations &amp; Page Speed (Bacon) presents Tue / Thu. On their off-days these slots are silent unless something broke. This keeps the daily count closer to ~16–18 lanes, not 23.</p>
 
   <!-- BLOCK 1 — ACQUISITION -->
   <div class="block" style="margin-top: 16px;">
@@ -774,50 +789,50 @@
     </div>
     <div class="reporter">
       <div class="r-num">17</div>
-      <div class="r-name">Product</div>
+      <div class="r-name">Product <span class="r-schedule">Mon · Wed · Fri</span></div>
       <div class="r-owner">Palak<small>Product</small></div>
-      <div class="r-metrics">Revenue from referrals<span class="pipe">·</span>Checkout conversion rate<span class="pipe">·</span>Freemium App progress<span class="pipe">·</span>mindvalley.com revamp progress<span class="pipe">·</span>One feature shipping this week</div>
+      <div class="r-metrics">Standing slots are <strong>Mon / Wed / Fri</strong> (3× a week)<span class="pipe">·</span>Revenue from referrals<span class="pipe">·</span>Checkout conversion rate<span class="pipe">·</span>Freemium App progress<span class="pipe">·</span>mindvalley.com revamp progress<span class="pipe">·</span>One feature shipping this week</div>
     </div>
     <div class="reporter">
       <div class="r-num">18</div>
-      <div class="r-name">Engineering</div>
+      <div class="r-name">Engineering <span class="r-schedule">Thu + Incident Days</span></div>
       <div class="r-owner">Irfan<small>Engineering</small></div>
-      <div class="r-metrics">Major bugs reported yesterday + resolution status<span class="pipe">·</span>Page deployment work with Acquisition (faster page production) — update</div>
+      <div class="r-metrics">Standing slot is <strong>Thursdays</strong> — plus any day a bug, attack, outage, or payment failure happened the day before<span class="pipe">·</span>Thursday read: post-mortem on the week's incidents ("we had an attack last Tuesday, here's what happened, here's the fix") + page deployment work with Acquisition</div>
     </div>
     <div class="reporter">
       <div class="r-num">19</div>
-      <div class="r-name">Migrations &amp; Page Speed</div>
+      <div class="r-name">Migrations &amp; Page Speed <span class="r-schedule">Tue · Thu</span></div>
       <div class="r-owner">Bacon<small>Engineering</small></div>
-      <div class="r-metrics">Blog migration progress<span class="pipe">·</span>Stories migration progress<span class="pipe">·</span>Page speed</div>
+      <div class="r-metrics">Standing slots are <strong>Tuesdays &amp; Thursdays</strong> (2× a week)<span class="pipe">·</span>Blog migration progress<span class="pipe">·</span>Stories migration progress<span class="pipe">·</span>Page speed</div>
     </div>
     <div class="reporter">
       <div class="r-num">20</div>
-      <div class="r-name">Checkout VPC</div>
+      <div class="r-name">Checkout VPC <span class="r-schedule">Tuesdays</span></div>
       <div class="r-owner">Naresh<small>Checkout</small></div>
-      <div class="r-metrics">Checkout VPC progress<span class="pipe">·</span>Checkout-related issues</div>
+      <div class="r-metrics">Standing slot is <strong>Tuesdays</strong> — plus any day there's a checkout-related incident<span class="pipe">·</span>Tuesday read: Checkout VPC progress + checkout conversion rate trend + any open issues</div>
     </div>
     <div class="reporter">
       <div class="r-num">21</div>
-      <div class="r-name">Acquisition / Product Design</div>
+      <div class="r-name">Acquisition / Product Design <span class="r-schedule">Wednesdays</span></div>
       <div class="r-owner">Fariz<small>Product Design</small></div>
-      <div class="r-metrics">What he's working on this week (e.g. MVU page)<span class="pipe">·</span>Time to deploy (target 24–48h, not 1 week)</div>
+      <div class="r-metrics">Standing slot is <strong>Wednesdays</strong><span class="pipe">·</span>What he's working on this week (e.g. MVU page)<span class="pipe">·</span>Time to deploy (target 24–48h, not 1 week)</div>
     </div>
     <div class="reporter">
       <div class="r-num">22</div>
-      <div class="r-name">Data</div>
+      <div class="r-name">Data <span class="r-schedule">Mondays</span></div>
       <div class="r-owner">Eros<small>Data team</small></div>
-      <div class="r-metrics">What they're working on in data<span class="pipe">·</span>One insight from data to share with the company</div>
+      <div class="r-metrics">Standing slot is <strong>Mondays</strong><span class="pipe">·</span>What the data team is working on<span class="pipe">·</span>One insight from data for the company</div>
     </div>
   </div>
 
   <!-- CLOSE -->
   <div class="close-block">
-    <div class="label">00:27–00:30 · Wrap</div>
-    <h3>Blockers raised → <em>follow-ups booked.</em></h3>
+    <div class="label">00:27–00:30 · Wrap &amp; buffer</div>
+    <h3>No central read-back. <em>Slots own their own follow-ups.</em></h3>
     <ul class="close-list">
-      <li>Every blocker raised that wasn't solved live gets a follow-up meeting. The owner who raised it books it — same day if possible, next day at the latest.</li>
-      <li>Daniel reads back the list of follow-ups before the meeting ends. Owners confirm they've booked them.</li>
-      <li>Tomorrow we open with the lanes that had blockers yesterday. Did they get unblocked? If not, why not?</li>
+      <li>If a blocker needed real discussion, you said so in your slot — and you named the stakeholders for the 48-hour follow-up there. The huddle doesn't track who booked what; the owner does.</li>
+      <li>Routing calls — "bump it to Vishen to film," "Brand approves by 1pm," "Ramya catches this for Vishen" — happen verbally in the slot. The exec heard it; that's the contract. No calendar invite needed.</li>
+      <li>Last 3 minutes are buffer for an overrun, a missed win, or an urgent item. If everything finished early, the meeting ends early.</li>
     </ul>
   </div>
 </section>
@@ -839,12 +854,17 @@
     <div class="role">
       <span class="role-tag">Role 02</span>
       <h4>Daniel — Chair (Head of Growth)</h4>
-      <p>This is a tactical meeting and growth is Daniel's domain, so he chairs. He keeps time, cuts at 75 seconds, reads back the unsolved blockers at the end so owners book follow-ups. He also sets the energy — calls out the wins, leads the cheering, makes sure the room reacts to what's shipping. Not a passive timekeeper. The meeting feels like Daniel.</p>
+      <p>This is a tactical meeting and growth is Daniel's domain, so he chairs. He keeps time, cuts at 75 seconds, and sets the energy — calls out wins, leads the cheering, makes sure the room reacts to what's shipping. He does <strong>not</strong> read back blockers at the end. Owners name their own follow-ups inside their slot. Daniel keeps the rhythm; ownership stays with the lane.</p>
     </div>
     <div class="role">
       <span class="role-tag">Role 03</span>
-      <h4>The Exec — solves live</h4>
-      <p>Marisha, Vishen, Dario, Norman, Alex, Jill — you're here to solve, not listen. When an owner raises a blocker that's yours to unblock, answer in the room. Yes, no, or a same-day commitment. The whole point of this meeting is owners stop waiting on you for days. Don't make them.</p>
+      <h4>The Exec — decides live</h4>
+      <p>Marisha, Vishen, Dario, Norman, Alex, Jill — you're here to decide, not listen. When an owner raises a blocker that's yours, answer in the room. Yes, no, or a name. The whole point of this meeting is owners stop waiting on you for days. Don't make them.</p>
+    </div>
+    <div class="role">
+      <span class="role-tag">Role 04</span>
+      <h4>Ramya — catches for absent execs</h4>
+      <p>If Vishen (or another exec) isn't in the room and a request lands that needs them — a video to film, an approval, a routing call — Ramya logs it on the spot and gets it to them after the meeting. The slot doesn't roll into tomorrow waiting. The owner gets a name to follow up with by EOD.</p>
     </div>
   </div>
 </section>
@@ -883,8 +903,8 @@
       <p>When a blocker is raised, the exec who can unblock it answers in the room. Yes, no, or a time before EOD. Not "I'll get back to you next week."</p>
     </div>
     <div class="discipline-cell">
-      <h4><span class="num">07</span>Unsolved blockers → follow-up booked</h4>
-      <p>Anything that needs more than two minutes of discussion gets a follow-up meeting. The owner who raised it books it — same day, or next day at the latest. Daniel reads back the list before close so owners commit.</p>
+      <h4><span class="num">07</span>Follow-ups live in the slot, not in a read-back</h4>
+      <p>This is not a problem-solving meeting. If your blocker needs a real conversation — "I need to walk you through this," "we have to look at the data together" — you say so in your own slot and name the stakeholders: <em>"I have a blocker on X, booking a 30-min with [names] within 48 hours."</em> No central read-back. The owner books it; the huddle moves on.</p>
     </div>
     <div class="discipline-cell">
       <h4><span class="num">08</span>75 seconds, hard cap</h4>
@@ -897,6 +917,14 @@
     <div class="discipline-cell">
       <h4><span class="num">10</span>If you're out, your slot still reports</h4>
       <p>Every slot has a backup. If the owner is on PTO, sick, or traveling — their manager or a direct report covers and gives the update. There is always an update. The slot doesn't go dark because someone's away.</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">11</span>If an exec is absent, Ramya catches</h4>
+      <p>When an owner needs Vishen (or another absent exec) to film, approve, or decide — Ramya logs the ask on the spot and routes it after the meeting. The owner walks out with a name and an EOD commitment, not a "let's see if Vishen joins tomorrow."</p>
+    </div>
+    <div class="discipline-cell">
+      <h4><span class="num">12</span>Some lanes are scheduled, not daily</h4>
+      <p>Data → Mondays. Checkout → Tuesdays. Product Design (Fariz) → Wednesdays. Engineering (Irfan) → Thursdays + any incident day. Product (Palak) → Mon / Wed / Fri. Migrations &amp; Page Speed (Bacon) → Tue / Thu. On their off-days these slots are silent unless something broke. Daily lane count stays closer to ~16–18, not 23.</p>
     </div>
   </div>
 </section>
